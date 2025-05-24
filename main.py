@@ -5,7 +5,7 @@ from coinflip import coin1
 
 # Замени 'TOKEN' на токен твоего бота
 # Этот токен ты получаешь от BotFather, чтобы бот мог работать
-bot = telebot.TeleBot("7896634459:AAEzdxiT-uwTxx4AHl_SJB4I7boaMApJkHM")
+bot = telebot.TeleBot("bjgjkjhkghhkhkhk")
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
