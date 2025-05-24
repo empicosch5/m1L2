@@ -1,8 +1,18 @@
-import random
-code_symbols = ('+-/*!&$#?=@abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')
-code = ''
-length = int(input('какая длина пароля?'))
-for i in range (length):
-    code += random.choice(code_symbols)
-print(code)
+import telebot
 
+# Инициализация бота с использованием его токена
+bot = telebot.TeleBot("7896634459:AAEzdxiT-uwTxx4AHl_SJB4I7boaMApJkHM")
+
+# Обработчик команды '/start' и '/hello'
+@bot.message_handler(commands=['start', 'hello'])
+def send_welcome(message):
+    bot.reply_to(message, f'Привет! Я бот {bot.get_me().first_name}!')
+
+# Обработчик команды '/heh'
+@bot.message_handler(commands=['heh'])
+def send_heh(message):
+    count_heh = int(message.text.split()[1]) if len(message.text.split()) > 1 else 5
+    bot.reply_to(message, "he" * count_heh)
+
+# Запуск бота
+bot.polling()
